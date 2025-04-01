@@ -31,13 +31,15 @@ echo "export BABYLON_PORT="60"" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 ```
 
-# download binary
+**download binary**
+```
 cd $HOME
 rm -rf babylon
 git clone https://github.com/babylonlabs-io/babylon.git
 cd babylon
 git checkout 833f069a4925a6811bb6b054718c917796968ea4
 BABYLON_BUILD_OPTIONS="testnet" make install
+```
 
 # config and init app
 babylond init $MONIKER --chain-id $BABYLON_CHAIN_ID
