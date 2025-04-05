@@ -55,11 +55,13 @@ wget -O $HOME/.babylond/config/genesis.json https://server-7.itrocket.net/testne
 wget -O $HOME/.babylond/config/addrbook.json  https://server-7.itrocket.net/testnet/babylon/addrbook.json
 ```
 
-# set seeds and peers
+**set seeds and peers**
+```
 SEEDS="0c949c3bcd83b81c794af8c3ae026a97d9c4564e@babylon-testnet-seed.itrocket.net:60656"
 PEERS="041b2be170e9f5e3f951d1942030447ad1134ec4@babylon-testnet-peer.itrocket.net:60656,b5ef770cac2aecd9f0a62bac7fbe262c1c55616b@51.89.40.26:26656,12d5bc2085fffaed4baee750381f44a3acda3195@64.130.52.117:26656,944c1206f2a189e4e3a60940fc096f845c865ee8@65.108.236.43:21156,e85eeade6fa94c072b8800de56ed5f3702fcb044@65.108.226.44:20656,9d840ebd61005b1b1b1794c0cf11ef253faf9a84@43.157.95.203:26656,346923ef86db50294b8917e65108af07e3df80c8@125.253.88.121:26656,7d8c898fabe6310cb8711f71216a6aceca2f4ef3@149.28.158.41:26656,c9eb49d2de9c30e27b7ae54deff234e356c97373@45.77.250.145:26656,c8babc5a4d29aee8abf6930c1538541856079cf0@89.58.62.213:26656"
 sed -i -e "/^\[p2p\]/,/^\[/{s/^[[:space:]]*seeds *=.*/seeds = \"$SEEDS\"/}" \
        -e "/^\[p2p\]/,/^\[/{s/^[[:space:]]*persistent_peers *=.*/persistent_peers = \"$PEERS\"/}" $HOME/.babylond/config/config.toml
+```
 
 # set custom ports in app.toml
 sed -i.bak -e "s%:1317%:${BABYLON_PORT}317%g;
