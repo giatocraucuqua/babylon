@@ -102,7 +102,8 @@ sed -i -e "s/prometheus = false/prometheus = true/" $HOME/.babylond/config/confi
 sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.babylond/config/config.toml
 ```
 
-# create service file
+**create service file**
+```
 sudo tee /etc/systemd/system/babylond.service > /dev/null <<EOF
 [Unit]
 Description=Babylon node
@@ -117,6 +118,7 @@ LimitNOFILE=65535
 [Install]
 WantedBy=multi-user.target
 EOF
+```
 
 **reset and download snapshot**
 ```
